@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+<form class="my_tweet_form" action="" method="POST">
+  {% csrf_token %}
+  <div class="container add-container" style="width: 50%;">
+    <div class="mb-3">
+          <label for="tweet" class="form-label">What do you think?</label>
+          <textarea class="form-control" maxlength="140" id="tweet" name="tweet" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Share to world!</button>
+  </div>
+</form>
+
+
+{%endblock%}

@@ -1,0 +1,63 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweet App</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/789/789479.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Carter One">
+
+    <link rel="stylesheet" href="{% static 'tweetapp/custom_form.css' %}">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'tweetapp:feeds' %}">
+            <img src="https://cdn-icons-png.flaticon.com/512/789/789479.png" alt="Logo" width="32" height="32" class="d-inline-block align-text-top">
+            Tweet App
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'tweetapp:feeds' %}">Tweets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'tweetapp:add_tweet' %}">Add Tweet</a>
+                </li>
+                {% if user.is_authenticated %}
+                {% else %}
+                    
+                {% endif %}
+            </ul>
+        </div>
+
+        {% if user.is_authenticated %}
+        <div class="ms-auto">
+          <a href="{% url 'logout' %}?next=/" class="btn btn-danger">Logout</a>
+        </div>
+        {% else %}
+        <div class="ms-auto">
+            <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+        </div>
+        {% endif %}
+        
+    </div>
+</nav>
+
+
+        {%block content%}
+
+
+
+        {%endblock%}
+
+
+
+    
+</body>
+</html>

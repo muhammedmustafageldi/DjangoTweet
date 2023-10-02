@@ -1,0 +1,47 @@
+body {
+    background-color: antiquewhite;
+    font-family: "Carter One"
+}
+
+.my_tweet_form{
+    margin: 30px;
+}
+.btn-primary{
+    background-color: rgb(173, 233, 248);
+    color: black;
+    border-color: black;
+}
+
+.btn-primary:hover{
+    background-color: rgb(75, 219, 255);
+    border-color: rgb(238, 254, 255);
+}
+
+.add-container{
+    background-color: rgb(75, 219, 255);
+    padding: 15px;
+    border: solid 3px #fff;
+    border-radius: 16px;   
+}
+
+.btn-primary{
+    width: 100%;
+}
+
+
+.text-center{
+    margin: 30px;
+    border-color: rgb(173, 233, 248);
+}
+.card-header{
+    background-color: rgb(173, 233, 248);
+}
+.oval{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: solid #fff;
+}
+
+
+

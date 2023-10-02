@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+
+
+<div class="container">
+
+    {% for tweet in tweets %}
+
+    <div class="card text-center">
+        <div class="card-header">
+            <img class="oval" src="https://cdn-icons-png.flaticon.com/512/789/789479.png">
+                Tweet
+                {% if tweet.username == user%}
+                    <a href="{% url 'tweetapp:delete_tweet' id=tweet.id %}" class="btn btn-danger float-end">X</a>
+                {% endif %}
+            </div>
+                <div class="card-body">
+                <h5 class="card-title">{{tweet.username}}</h5>
+                <p class="card-text">{{tweet.body}}</p>
+                </div>
+            <div class="card-footer text-body-secondary">
+        {{tweet.time}}
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{%endblock%}

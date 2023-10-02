@@ -1,0 +1,47 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<style>
+.form-floating {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+</style>
+
+<!-- if login transaction has error -->
+{% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        Your username and password didn't match. Please try again.
+    </div>
+{% endif %}
+
+{% load static %}
+<div class="container">
+<form method="POST" action="{% url 'login' %}" novalidate>
+    {% csrf_token %} 
+    <a href="{% url 'tweetapp:feeds'%}"><img style="margin-top: 5px;" class="mb-4" src="{% static 'tweetapp/tweet_app_logo.png' %}" alt="brand image" width="250" height="85"></a>
+    <h1 class="h3 mb-3 fw-normal">Please Login</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
+      <label for="floatingInput">Username</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <div style="margin-top: 20px; margin-bottom: 20px;" >
+        <a href="{% url 'tweetapp:signup'%}">
+            <label style="color: black;">
+                Don't you have an account? Create it now.
+            </label>
+        </a>
+    </div>
+    <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
+    <p class="mt-5 mb-3 text-body-secondary">&copy; Presented By Swanky</p>
+  </form>
+</div>
+
+{% endblock %}

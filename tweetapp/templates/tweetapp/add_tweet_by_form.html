@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+<style>
+  .my_tweet_form{
+    margin: 30px;
+  }
+  .btn-primary{
+    background-color: rgb(173, 233, 248);
+    color: black;
+    border-color: black;
+  }
+
+  .btn-primary:hover{
+    background-color: rgb(75, 219, 255);
+    border-color: rgb(238, 254, 255);
+  }
+
+  .form-control{
+    width: 60%;
+  }
+
+
+</style>
+
+<form class="my_tweet_form" action="" method="POST">
+  {% csrf_token %}
+  {{form}}
+  <button type="submit" class="btn btn-primary">Share to world!</button>
+</form>
+
+
+{%endblock%}

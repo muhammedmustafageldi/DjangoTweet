@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .form-floating {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    </style>
+    
+    {% load static %}
+
+    <!-- if signup transaction has error -->
+    {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+            {{ error_message }}
+        </div>
+    {% endif %}
+    
+    <div class="container">
+    <form method="POST" action="{% url 'tweetapp:signup' %}" novalidate>
+        {% csrf_token %} 
+        <a href="{% url 'tweetapp:feeds'%}"><img style="margin-top: 5px;" class="mb-4" src="{% static 'tweetapp/tweet_app_logo.png' %}" alt="brand image" width="250" height="85"></a>
+        <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
+    
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
+          <label for="floatingInput">Username</label>
+        </div>
+    
+        <div class="form-floating">
+            <input type="password" class="form-control" id="password1" placeholder="Password" name="password">
+            <label for="password1">Password</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="password" class="form-control" id="password1" placeholder="Password" name="password_confirmation">
+            <label for="password1">Password</label>
+        </div>
+    
+    
+        <div style="margin-top: 20px; margin-bottom: 20px;" >
+            <a href="{% url 'login'%}">
+                <label style="color: black;">
+                    Already have an account? Login
+                </label>
+            </a>
+        </div>
+        <button class="btn btn-primary w-100 py-2" type="submit" value="signup">Sign Up</button>
+        <p class="mt-5 mb-3 text-body-secondary">&copy; Presented By Swanky</p>
+      </form>
+    </div>
+
+
+{% endblock %}      
+
+
+
+    
